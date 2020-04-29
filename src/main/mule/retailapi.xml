@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
+    <http:listener-config name="retailapi-httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="8081" />
+    </http:listener-config>
+    <apikit:config name="retailapi-config" api="retailapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="8de850cb-e8ac-47c6-b1a9-62cf97ddc3a3" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" >
+			<wsc:web-service-security actor="http://schemas.xmlsoap.org/soap/actor/next" />
+		</wsc:connection>
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config1" doc:name="Web Service Consumer Config" doc:id="af82b34c-8701-4a6e-9b2b-39855b433bda" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config2" doc:name="Web Service Consumer Config" doc:id="ea213cc4-12e6-42ff-9f0c-c2a5218688ab" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config3" doc:name="Web Service Consumer Config" doc:id="0a41378c-3efa-4009-8827-3c3645e1a8bd" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config4" doc:name="Web Service Consumer Config" doc:id="74e97723-e95a-4e63-b50b-4d3455be1d33" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config5" doc:name="Web Service Consumer Config" doc:id="efa93a82-e1e6-446d-b544-c04f35e4f272" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config6" doc:name="Web Service Consumer Config" doc:id="ffdea5b9-38c3-407e-820c-09ae090fab11" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config7" doc:name="Web Service Consumer Config" doc:id="cc06c88f-5397-4ffc-9487-daea16e41fbf" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config8" doc:name="Web Service Consumer Config" doc:id="8f811839-1086-48ed-8b41-20fad9ecc4cf" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config9" doc:name="Web Service Consumer Config" doc:id="6f3af290-aff6-4c58-9342-8d23b0c99106" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config10" doc:name="Web Service Consumer Config" doc:id="781450cb-907d-4678-a369-318d1c7e6231" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config11" doc:name="Web Service Consumer Config" doc:id="513f77f4-c806-4c06-9c51-b77c8bf69eb8" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config12" doc:name="Web Service Consumer Config" doc:id="a2a8b27d-8bbb-4efe-be2f-3134d43e1745" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config13" doc:name="Web Service Consumer Config" doc:id="ef8012d6-4d5b-40f2-ad43-5e20165eafdb" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<wsc:config name="Web_Service_Consumer_Config14" doc:name="Web Service Consumer Config" doc:id="a62b3d83-9927-42fb-99be-665d870773c9" >
+		<wsc:connection wsdlLocation="http://dev.icraftsoft.net:8093/ws/retail.wsdl" service="RetailPortService" port="RetailPortSoap11" address="http://dev.icraftsoft.net:8093/ws" />
+	</wsc:config>
+	<flow name="retailapi-main">
+        <http:listener config-ref="retailapi-httpListenerConfig" path="/api/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="retailapi-config" />
+        <error-handler>
+            <on-error-propagate type="APIKIT:BAD_REQUEST">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Bad request"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">400</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:NOT_FOUND">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Resource not found"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:METHOD_NOT_ALLOWED">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Method not allowed"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">405</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:NOT_ACCEPTABLE">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Not acceptable"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">406</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:UNSUPPORTED_MEDIA_TYPE">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Unsupported media type"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">415</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:NOT_IMPLEMENTED">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Not Implemented"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">501</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="retailapi-console">
+        <http:listener config-ref="retailapi-httpListenerConfig" path="/console/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:console config-ref="retailapi-config" />
+        <error-handler>
+            <on-error-propagate type="APIKIT:NOT_FOUND">
+                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Resource not found"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="put:\Bills\(id):retailapi-config">
+        <http:listener doc:name="Listener" doc:id="35b28c90-dc7a-4311-8ac9-cdd1e26cd0d1" config-ref="retailapi-httpListenerConfig" path="/UpdateBll"/>
+		<ee:transform doc:name="Transform Message" doc:id="88315be7-b2d5-4a21-ab20-66d845183589" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#UpdateBillRequest: {
+		ns0#Bill: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume operation="UpdateBill" doc:name="Consume" doc:id="e04407a2-21b7-4291-abb8-9d4fcefaa184" config-ref="Web_Service_Consumer_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="33aa7523-08f0-4bb9-818a-1e737c85c8c1" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+---
+payload.body.ns0#UpdateBillResponse
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="put:\Products\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="dd62b1cc-08d8-45d9-ac94-611ac8c9d080" config-ref="retailapi-httpListenerConfig" path="/updateProduct"/>
+		<ee:transform doc:name="Transform Message" doc:id="6be8858c-b27e-4df3-a208-bdb58436e8d6" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#UpdateProductRequest: {
+		ns0#Product: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="7cc0908d-ac6a-4deb-b703-abf0b62cff36" config-ref="Web_Service_Consumer_Config1" operation="UpdateProduct"/>
+		<ee:transform doc:name="Transform Message" doc:id="05dc5d8b-869c-4c76-b475-03e0f2caafcb" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+---
+payload.body.ns0#UpdateProductResponse
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="put:\productcatagory\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="d35dd2b1-8062-433b-b656-f6bd086261ee" config-ref="retailapi-httpListenerConfig" path="/UpdateProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="b2761f70-6684-4fb0-b060-cbfcd5de5616" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#UpdateProductCategoryRequest: {
+		ns0#ProductCategory: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="1e824e48-04c3-4639-b1f1-8f97efdd8629" config-ref="Web_Service_Consumer_Config2" operation="UpdateProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="3f6c9f35-11d1-43b3-b075-5d87b0cd67b6" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+ns ns0 http://www.craftsoftware.com/retail
+---
+payload.body.ns0#UpdateProductCategoryResponse
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="delete:\Bills\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="47e1ae3e-1644-440f-97d7-c9dd05144819" config-ref="retailapi-httpListenerConfig" path="/DeletBill"/>
+		<ee:transform doc:name="Transform Message" doc:id="9d7ae79f-caac-41f1-a9ef-6147e9e1b938" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#DeleteBillRequest: {
+		ns0#id: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="7a8a9d68-7842-4ff9-af07-74a5d73e77a6" config-ref="Web_Service_Consumer_Config3" operation="DeleteBill"/>
+		<ee:transform doc:name="Transform Message" doc:id="2ac9c51f-3b8f-4bef-a4ba-21ac13df8100" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+
+---
+payload.body.ns0#DeleteBillResponse]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="delete:\productcatagory\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="e06829fa-b3b9-46c7-8c54-8dc65ac46dce" config-ref="retailapi-httpListenerConfig" path="/deletProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="35f1383c-245e-46b9-87d2-17a901300fa3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#DeleteProductCategoryRequest: {
+		ns0#id: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="c69cadb3-5c62-46f3-9936-705ffd70eea0" config-ref="Web_Service_Consumer_Config4" operation="DeleteProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="3b18eead-8f28-4031-a47d-67d1942fe9f5" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+---
+payload.body.ns0#DeleteProductCategoryResponse]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="delete:\Products\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="da9497eb-5acf-40ba-814e-d25bdc5fc4e7" config-ref="retailapi-httpListenerConfig" path="/DeletProduct"/>
+		<ee:transform doc:name="Transform Message" doc:id="63e07710-e7cf-43a6-87f2-8d169f30dbaa" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#DeleteProductRequest: {
+		ns0#id: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="d64c2a82-79d3-46e3-b19d-c9f1b5cb74c7" config-ref="Web_Service_Consumer_Config5" operation="DeleteProduct"/>
+		<ee:transform doc:name="Transform Message" doc:id="cb518ced-6523-40b9-ae68-9e699ed83d00" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+
+---
+payload.body.ns0#DeleteProductResponse]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="get:\Bills:retailapi-config">
+        <http:listener doc:name="Listener" doc:id="c24ca916-6cfc-4530-a873-7dc633071e0a" config-ref="retailapi-httpListenerConfig" path="/GetBills"/>
+		<ee:transform doc:name="Transform Message" doc:id="752ffd84-38a6-4ef0-b7ef-53a8b0c4af74" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#GetAllBillsRequest: payload
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume operation="GetAllBills" doc:name="Consume" doc:id="9c31d6b6-2985-4f4e-91cd-ea02b000cf65" config-ref="Web_Service_Consumer_Config6"/>
+		<ee:transform doc:name="Transform Message" doc:id="e4a10885-5f09-4c78-8a7b-75db11368ad8" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="get:\Products:retailapi-config">
+		<http:listener doc:name="Listener" doc:id="9de7b2c9-eae9-4fa8-a389-a760b96b4f52" config-ref="retailapi-httpListenerConfig" path="/GetProducts"/>
+		<ee:transform doc:name="Transform Message" doc:id="aaaeebfc-ce03-47f7-bf29-330eb6a18315" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#GetAllProductsRequest: payload
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="ba3a7b36-8bda-4a26-8800-aa748625486c" config-ref="Web_Service_Consumer_Config7" operation="GetAllProducts"/>
+		<ee:transform doc:name="Transform Message" doc:id="a3270335-0012-4ca2-8016-432ba5ce41c2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="get:\productcatagory:retailapi-config">
+		<http:listener doc:name="Listener" doc:id="a50601d3-c20c-42b4-a6a1-c244d42203b8" config-ref="retailapi-httpListenerConfig" path="/GetProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="a5528e09-a72e-4301-b6e9-83d8553c3b5d" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#GetAllProductCategorysRequest: payload
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="a76ac07e-adbe-43aa-b321-8b2cba959280" config-ref="Web_Service_Consumer_Config8" operation="GetAllProductCategorys"/>
+		<ee:transform doc:name="Transform Message" doc:id="30c71023-ecb5-46bd-8b51-146da81ea736" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="get:\Bills\(id):retailapi-config">
+        <http:listener doc:name="Listener" doc:id="cefc3f6d-0cb2-4a93-af2a-a6d6071ad2e7" config-ref="retailapi-httpListenerConfig" path="/GetBillById"/>
+		<ee:transform doc:name="Transform Message" doc:id="6890d67e-a37d-491f-9912-9c2088538a42" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#GetBillRequest: {
+		ns0#id: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="fa19da40-a37d-41c7-b575-5749acf9f71f" config-ref="Web_Service_Consumer_Config9" operation="GetBill"/>
+		<ee:transform doc:name="Transform Message" doc:id="1e277ab9-89e6-40fc-936d-c0445375af31" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+---
+payload.body.ns0#GetBillResponse]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="get:\Products\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="f3c81cdc-e362-4255-93bc-954f21439c0a" config-ref="retailapi-httpListenerConfig" path="/GetProductById"/>
+		<ee:transform doc:name="Transform Message" doc:id="da47f22e-fc09-414c-a535-81adfa4ab1dd" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#GetProductRequest: {
+		ns0#id: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="5c415d5a-86bf-41e0-a121-31935c695223" config-ref="Web_Service_Consumer_Config10" operation="GetProduct"/>
+		<ee:transform doc:name="Transform Message" doc:id="cd9ba4f4-0b2e-4876-a57a-cee0d8694d36" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+---
+payload.body.ns0#GetProductResponse]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="get:\productcatagory\(id):retailapi-config">
+		<http:listener doc:name="Listener" doc:id="8f25233a-a4e9-43ae-9dbd-a1165bc17cc1" config-ref="retailapi-httpListenerConfig" path="/GetProductCategoryById"/>
+		<ee:transform doc:name="Transform Message" doc:id="8a94403d-2b92-4ba7-8c9a-10422d089bff" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#GetProductCategoryRequest: {
+		ns0#id: attributes.queryParams.id
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="1fd05cd0-14f4-422a-871b-d1a03d5ca8f3" config-ref="Web_Service_Consumer_Config11" operation="GetProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="764163be-cf31-4452-87da-443b0a943384" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+ns ns0 http://www.craftsoftware.com/retail
+
+---
+payload.body.ns0#GetProductCategoryResponse
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="post:\Bills:retailapi-config">
+		<http:listener doc:name="Listener" doc:id="a1dc68d2-e512-4dea-89b1-b2aa91f17306" config-ref="retailapi-httpListenerConfig" path="PostBills"/>
+		<ee:transform doc:name="Transform Message" doc:id="4a72593d-32fc-4bb2-bb66-55d008e25e23" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#CreateBillRequest: {
+		ns0#CreateBill: payload
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="04ac0729-b1ee-40a5-9f6e-921d70fe96b1" config-ref="Web_Service_Consumer_Config12" operation="CreateBill"/>
+		<ee:transform doc:name="Transform Message" doc:id="ea91c0af-2cb6-4772-a619-11c2057f89fc" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="post:\Products:retailapi-config">
+		<http:listener doc:name="Listener" doc:id="a23a6435-96a3-4244-a650-512ab2b3be29" config-ref="retailapi-httpListenerConfig" path="/PostProducts"/>
+		<ee:transform doc:name="Transform Message" doc:id="bc2bcfb5-8112-4884-94ae-a22a2be8d3ce" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#CreateProductRequest: {
+		ns0#CreateProduct: payload
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="4168d0f3-6a6e-491b-a9b1-7b4fce8f0593" config-ref="Web_Service_Consumer_Config13" operation="CreateProduct"/>
+		<ee:transform doc:name="Transform Message" doc:id="4a2f2e05-a633-49f9-ac35-5b79b88f9b53" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+    <flow name="post:\productcatagory:retailapi-config">
+		<http:listener doc:name="Listener" doc:id="7d26a9f1-f34b-4b05-9f96-855028a99865" config-ref="retailapi-httpListenerConfig" path="/PostProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="4a90c256-8025-4d59-b50f-0c1a8b750195" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns ns0 http://www.craftsoftware.com/retail
+---
+{
+	ns0#CreateProductCategoryRequest: {
+		ns0#CreateProductCategory: payload
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume doc:name="Consume" doc:id="a8c6f32f-539e-449a-b7e2-a097d3513bba" config-ref="Web_Service_Consumer_Config14" operation="CreateProductCategory"/>
+		<ee:transform doc:name="Transform Message" doc:id="a5bf0fb4-ace4-4fdc-bde3-ecb081d6b329" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+    </flow>
+</mule>
